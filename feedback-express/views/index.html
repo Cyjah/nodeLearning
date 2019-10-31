@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/public/css/main.css">
+</head>
+<body>
+  <!--
+    浏览器在收到HTML响应内容之后，就要开始从上到下依次解析，当在解析过程中，如果发现：
+    link、script、img、iframe、video、audio等带有src或者href属性标签的时候，浏览器会自动对这些资源发起新的请求。
+  -->
+  <div>
+    <h1>留言板首页</h1>
+  <a href="/post">发表留言</a>
+  </div>
+  <div class="comments">
+    <ul>
+      {{each comments}}
+        <li>{{ $value.name }}说：{{ $value.message }} <span>{{ $value.date }}</span></li>
+      {{/each}}
+    </ul>
+  </div>
+</body>
+</html>
